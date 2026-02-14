@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "tokensReceived",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TokenBankV2.sol": "ITokenReceiver"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/TokenBankV2.sol": {
+			"keccak256": "0x03c649a5a6af78121fd9288402930e983c2f29ba7717ec30db763ed9293fea2d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a84e422f3a2ee2623a7b8c0c39cf4e1f69c9a70211f6dd2cba7165e1158227b",
+				"dweb:/ipfs/QmPBGLHtyLr6ZefpUTPKbw3LnW73CHYKpPLz7AF2W2H4eF"
+			]
+		}
+	},
+	"version": 1
+}
