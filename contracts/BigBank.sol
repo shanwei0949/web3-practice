@@ -1,8 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract Bank{
-    address public immutable admin;
+interface IBank {
+    function deposit()external payable;
+    function getTopDepositors()external view returns (address[3] memory, uint[3] memory);
+    function withdraw()external ; 
+}
+
+contract Bank is IBank{
+
+    address public admin;
     mapping (address => uint256) public deposits;
 
     address[3] public topDepositors;
@@ -13,11 +20,11 @@ contract Bank{
         admin= msg.sender;
     }
 
-    receive()external payable {
+    receive()external payable virtual {
         handleDeposit();
     }
 
-    function deposit()external payable  {
+    function deposit()external payable virtual {
         handleDeposit();
     }
 
@@ -82,4 +89,53 @@ contract Bank{
 
         require(success, "withdraw failed");
     }
+
 }
+
+contract BigBank is Bank{
+
+    address public immutable owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier depositMoreThan001Eth(){
+        require(msg.value >= 0.001 ether, "deposit amount must exceed 0.001 ether");
+        _;
+    }
+
+    function deposit()external payable override depositMoreThan001Eth{
+        handleDeposit();
+    }
+
+    receive() external payable override { 
+        require(msg.value > 0.001 ether, "deposit amount must exceed 0.001 ether");
+        handleDeposit();
+    }
+
+    function changeAdmin(address newAdmin)external {
+        require(msg.sender == admin, "Only admin can change admin");
+        require(newAdmin != address(0), "New admin can not be zero address");
+
+        admin =  newAdmin;
+
+    }
+}
+
+contract Admin{
+    address public immutable admin;
+
+    constructor(){
+        admin = msg.sender;
+    }
+
+    receive() external payable { }
+
+    function adminWithdraw(IBank bank)public {
+        require(msg.sender == admin, "Only admin can withdraw");
+        bank.withdraw();
+    }
+}
+
+

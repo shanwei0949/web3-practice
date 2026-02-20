@@ -24,6 +24,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "changeAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "deposit",
 				"outputs": [],
@@ -62,6 +75,19 @@
 						"internalType": "uint256[3]",
 						"name": "",
 						"type": "uint256[3]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -111,7 +137,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/BigBank.sol": "Bank"
+			"contracts/BigBank.sol": "BigBank"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},

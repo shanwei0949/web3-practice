@@ -24,71 +24,14 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "deposit",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "",
+						"internalType": "contract IBank",
+						"name": "bank",
 						"type": "address"
 					}
 				],
-				"name": "deposits",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getTopDepositors",
-				"outputs": [
-					{
-						"internalType": "address[3]",
-						"name": "",
-						"type": "address[3]"
-					},
-					{
-						"internalType": "uint256[3]",
-						"name": "",
-						"type": "uint256[3]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "topDepositors",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "withdraw",
+				"name": "adminWithdraw",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -111,7 +54,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/BigBank.sol": "Bank"
+			"contracts/BigBank.sol": "Admin"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
